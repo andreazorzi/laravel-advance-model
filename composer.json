@@ -1,0 +1,37 @@
+{
+    "name": "andreazorzi/laravel-advance-model",
+    "version": "1.0.0",
+    "description": "Helpful laravel model commands",
+    "keywords": [
+        "Andrea Zorzi",
+        "laravel",
+        "laravel-advance-model",
+        "advance-model"
+    ],
+    "homepage": "https://github.com/andreazorzi/laravel-advance-model",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Andreazorzi\\LaravelAdvanceModel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrea Zorzi",
+            "email": "info@zorziandrea.com"
+        }
+    ],
+    "require": {
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AdvanceModel\\AdvanceModelServiceProvider"
+            ],
+            "aliases": {
+                "AdvanceModel": "AdvanceModel\\Facades\\AdvanceModel"
+            }
+        }
+    }
+}
