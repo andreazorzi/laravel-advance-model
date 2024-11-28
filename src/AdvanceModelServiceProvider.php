@@ -2,6 +2,7 @@
 
 namespace AdvanceModel;
 
+use AdvanceModel\Commands\CreateModel;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,9 +19,9 @@ class AdvanceModelServiceProvider extends PackageServiceProvider
             ->name('laravel-advance-model')
             // ->hasConfigFile('advance-model')
             ->hasCommands([
-                
+                CreateModel::class
             ])
-            ->hasViews();
+            /*->hasViews()*/;
     }
     
     // public function boot()
