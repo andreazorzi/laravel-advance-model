@@ -29,10 +29,10 @@ class CreateModel extends Command
         parent::__construct();
         
         $this->files = [
-            "model.php" => ["path" => App::path("Models/"), "name" => ":MODEL_NAME:.php"],
-            "controller.php" => ["path" => App::path("Http/Controllers/"), "name" => ":MODEL_NAME:Controller.php"],
-            "page.blade.php" => ["path" => App::resourcePath("/views/backoffice/"), "name" => ":MODEL_NAME_PLURAL_LOWER:.blade.php"],
-            "modal.blade.php" => ["path" => App::resourcePath("/views/components/backoffice/modals/"), "name" => ":MODEL_NAME_LOWER:-data.blade.php"],
+            "model.php" => ["path" => App::path("Models/"), "name" => ":MODEL_NAME:.php", "type" => 0],
+            "controller.php" => ["path" => App::path("Http/Controllers/"), "name" => ":MODEL_NAME:Controller.php", "type" => 1],
+            "page.blade.php" => ["path" => App::resourcePath("/views/backoffice/"), "name" => ":MODEL_NAME_PLURAL_LOWER:.blade.php", "type" => 2],
+            "modal.blade.php" => ["path" => App::resourcePath("/views/components/backoffice/modals/"), "name" => ":MODEL_NAME_LOWER:-data.blade.php", "type" => 3],
         ];
     }
 
@@ -66,6 +66,8 @@ class CreateModel extends Command
         
         // Copy the files
         foreach ($this->files as $file => $data) {
+            if($type < $data["type"]) continue;
+            
             // Get the files paths
             $template_path = __DIR__ . '/../storage/templates/'.$file;
             $file_name = str_replace(
