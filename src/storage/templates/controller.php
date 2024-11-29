@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\:MODEL_NAME:;
 use Illuminate\Http\Request;
 use App\Models\PasswordReset;
-use App\Traits\ControllerBase;
+use AdvanceModel\Traits\BaseController;
 use SearchTable\Traits\SearchController;
 
 class :MODEL_NAME:Controller extends Controller
 {
-    use ControllerBase, SearchController;
+    use BaseController, SearchController;
     
     /**
      * Display a listing of the resource.

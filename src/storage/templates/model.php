@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\ModelBase;
+use AdvanceModel\Traits\BaseModel;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use SearchTable\Traits\SearchModel;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class :MODEL_NAME: extends Model
 {
-    use HasFactory, ModelBase, SearchModel;
+    use HasFactory, BaseModel, SearchModel;
     
     /** Settings **/
     // protected $table = 'table_name'; // override default table name [Str::plural(Str::lower(class_basename(self)))]
