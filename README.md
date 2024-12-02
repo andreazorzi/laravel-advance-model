@@ -1,4 +1,7 @@
 # Laravel Advance Model
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/andreazorzi/laravel-advance-model.svg?style=flat-square)](https://packagist.org/packages/andreazorzi/laravel-advance-model)
+[![Total Downloads](https://img.shields.io/packagist/dt/andreazorzi/laravel-advance-model.svg?style=flat-square)](https://packagist.org/packages/andreazorzi/laravel-advance-model)
+
 Enhance the Laravel model creation with a simple command.
 The package is based on [Bootstrap 5](https://getbootstrap.com/) for the table UI and [htmx](https://htmx.org/docs/) for all the requests.
 
