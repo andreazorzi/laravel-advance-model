@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\:MODEL_NAME:;
 use Illuminate\Http\Request;
 use App\Models\PasswordReset;
+use AdvanceModel\Traits\AlertResponse;
 use AdvanceModel\Traits\BaseController;
 use SearchTable\Traits\SearchController;
 
 class :MODEL_NAME:Controller extends Controller
 {
-    use BaseController, SearchController;
+    use BaseController, SearchController, AlertResponse;
     
     /**
      * Display a listing of the resource.
@@ -30,7 +31,8 @@ class :MODEL_NAME:Controller extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request){
-        return :MODEL_NAME:::createFromRequest($request);
+        $response = :MODEL_NAME:::createFromRequest($request);
+        return $this->alert($response);
     }
 
     /**
@@ -44,7 +46,8 @@ class :MODEL_NAME:Controller extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, :MODEL_NAME: $:MODEL_NAME_LOWER:){
-        return $:MODEL_NAME_LOWER:->updateFromRequest($request);
+        $response = $:MODEL_NAME_LOWER:->updateFromRequest($request);
+        return $this->alert($response);
     }
 
     /**
