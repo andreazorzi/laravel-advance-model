@@ -58,26 +58,4 @@ class :MODEL_NAME:Controller extends Controller
         $:MODEL_NAME_LOWER:->delete();
         return view("components.alert", ["status" => "success", "message" => ":MODEL_NAME: ".$name." eliminato", "beforeshow" => 'modal.hide(); htmx.trigger("#page", "change");']);
     }
-    
-    public function impersonate(Request $request, :MODEL_NAME: $:MODEL_NAME_LOWER:){
-        session(["auth.impersonate" => $:MODEL_NAME_LOWER:->name]);
-        
-        return response(headers: ["HX-Redirect" => route("backoffice.index")]);
-    }
-    
-    function stop_impersonate(Request $request){
-        session()->forget("auth.impersonate");
-        
-        return response(headers: ["HX-Redirect" => route("backoffice.index")]);
-    }
-    
-    function send_reset_password(Request $request, :MODEL_NAME: $:MODEL_NAME_LOWER:){
-        $send_email = $:MODEL_NAME_LOWER:->sendResetPasswordEmail();
-        
-        return view("components.alert", ["status" => $send_email ? "success" : "danger", "message" => "Email ".($send_email ? "inviata" : "non inviata")]);
-    }
-    
-    public function change_password(Request $request, PasswordReset $reset_link){
-        return $reset_link->changePassword($request);
-    }
 }
