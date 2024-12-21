@@ -53,7 +53,7 @@ class :MODEL_NAME: extends Model
     
     /** Methods **/
     
-    /** Update and validation functions **/
+    /** Update, delete and validation functions **/
     public function updateFromRequest(Request $request, bool $update = true):array{
         $validation = self::validate($request, $update);
         if ($validation["status"] == "danger") {
@@ -74,6 +74,13 @@ class :MODEL_NAME: extends Model
         }
         
         return ["status" => "success", "message" => ":MODEL_NAME: ".($update ? "updated" : "created"), "model" => $this];
+    }
+    
+    public function deleteFromRequest():array{
+        $name = $this->name;
+        $this->delete();
+        
+        return ["status" => "success", "message" => ":MODEL_NAME: $name ".("deleted"), "beforeshow" => 'modal.hide(); htmx.trigger("#page", "change");'];
     }
     
     public static function validate(Request $request, bool $update):array{

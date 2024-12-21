@@ -54,8 +54,7 @@ class :MODEL_NAME:Controller extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(:MODEL_NAME: $:MODEL_NAME_LOWER:){
-        $name = $:MODEL_NAME_LOWER:->name;
-        $:MODEL_NAME_LOWER:->delete();
-        return view("components.alert", ["status" => "success", "message" => ":MODEL_NAME: ".$name." eliminato", "beforeshow" => 'modal.hide(); htmx.trigger("#page", "change");']);
+        $response = $:MODEL_NAME_LOWER:->updateFromRequest($request);
+        return $this->alert($response);
     }
 }
