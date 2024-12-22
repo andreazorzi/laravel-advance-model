@@ -54,7 +54,7 @@ class :MODEL_NAME:Controller extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(:MODEL_NAME: $:MODEL_NAME_LOWER:){
-        $response = $:MODEL_NAME_LOWER:->updateFromRequest($request);
+        $response = $:MODEL_NAME_LOWER:->deleteFromRequest();
         return $this->alert($response);
     }
 }

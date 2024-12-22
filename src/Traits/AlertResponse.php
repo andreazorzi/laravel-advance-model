@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace AdvanceModel\Traits;
 
 use Illuminate\Support\Facades\View;
 
