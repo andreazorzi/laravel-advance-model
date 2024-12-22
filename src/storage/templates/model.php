@@ -73,7 +73,7 @@ class :MODEL_NAME: extends Model
             $this->save();
         }
         
-        return ["status" => "success", "message" => ":MODEL_NAME: ".($update ? "updated" : "created"), "model" => $this];
+        return ["status" => "success", "message" => ":MODEL_NAME: ".($update ? "updated" : "created"), "model" => $this, "beforeshow" => 'modal.hide(); htmx.trigger("#page", "change");'];
     }
     
     public function deleteFromRequest():array{
