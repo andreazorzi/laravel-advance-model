@@ -14,16 +14,16 @@
     </div>
 </div>
 <div class="modal-footer">
-    <div class="row w-100 justify-content-end">
+    <div class="row w-100">
         @isset($:MODEL_NAME_LOWER:)
-            <div class="col-md-6 p-0">
+            <div class="col p-0">
                 <button id=":MODEL_NAME_LOWER:-delete" type="button" class="btn btn-danger"
                     hx-delete="{{route(":MODEL_NAME_PLURAL_LOWER:.destroy", [$:MODEL_NAME_LOWER:])}}" hx-target="#request-response" hx-confirm="Eliminare :MODEL_NAME_LOWER: {{$:MODEL_NAME_LOWER:->name}}?" hx-params="none">
                     Elimina
                 </button>
             </div>
         @endisset
-        <div class="col-md-6 p-0 text-end">
+        <div class="col p-0 text-end">
             @csrf
             <button id=":MODEL_NAME_LOWER:-save" type="button" class="btn btn-primary"
                 @isset($:MODEL_NAME_LOWER:)
