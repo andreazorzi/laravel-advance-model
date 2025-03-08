@@ -38,23 +38,23 @@ class :MODEL_NAME:Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(:MODEL_NAME: $:MODEL_NAME_LOWER:){
-        return self::modal_data(":MODEL_NAME_LOWER:", [":MODEL_NAME_LOWER:" => $:MODEL_NAME_LOWER:]);
+    public function show(:MODEL_NAME: $:MODEL_NAME_VARIABLE:){
+        return self::modal_data(":MODEL_NAME_LOWER:", [":MODEL_NAME_LOWER:" => $:MODEL_NAME_VARIABLE:]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, :MODEL_NAME: $:MODEL_NAME_LOWER:){
-        $response = $:MODEL_NAME_LOWER:->updateFromRequest($request);
+    public function update(Request $request, :MODEL_NAME: $:MODEL_NAME_VARIABLE:){
+        $response = $:MODEL_NAME_VARIABLE:->updateFromRequest($request);
         return $this->alert($response);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(:MODEL_NAME: $:MODEL_NAME_LOWER:){
-        $response = $:MODEL_NAME_LOWER:->deleteFromRequest();
+    public function destroy(:MODEL_NAME: $:MODEL_NAME_VARIABLE:){
+        $response = $:MODEL_NAME_VARIABLE:->deleteFromRequest();
         return $this->alert($response);
     }
 }

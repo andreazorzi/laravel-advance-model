@@ -60,9 +60,10 @@ class CreateModel extends Command
         $this->info("Creating model: $model_name\n");
         
         // Get model name derivatives
-        $model_name_lower = Str::lower($model_name);
+        $model_name_lower = Str::kebab($model_name);
+        $model_name_variable = Str::snake($model_name);
         $model_name_plural = Str::plural($model_name);
-        $model_name_plural_lower = Str::lower($model_name_plural);
+        $model_name_plural_lower = Str::kebab($model_name_plural);
         
         // Copy the files
         foreach ($this->files as $file => $data) {
@@ -71,8 +72,8 @@ class CreateModel extends Command
             // Get the files paths
             $template_path = __DIR__ . '/../storage/templates/'.$file;
             $file_name = str_replace(
-                [":MODEL_NAME:", ":MODEL_NAME_LOWER:", ":MODEL_NAME_PLURAL:", ":MODEL_NAME_PLURAL_LOWER:"],
-                [$model_name, $model_name_lower, $model_name_plural, $model_name_plural_lower],
+                [":MODEL_NAME:", ":MODEL_NAME_VARIABLE:", ":MODEL_NAME_LOWER:", ":MODEL_NAME_PLURAL:", ":MODEL_NAME_PLURAL_LOWER:"],
+                [$model_name, $model_name_variable, $model_name_lower, $model_name_plural, $model_name_plural_lower],
                 $data["name"]
             );
             $file_path = $data["path"].$file_name;
@@ -94,8 +95,8 @@ class CreateModel extends Command
             
             // Replace placeholders
             $content = str_replace(
-                [":MODEL_NAME:", ":MODEL_NAME_LOWER:", ":MODEL_NAME_PLURAL:", ":MODEL_NAME_PLURAL_LOWER:"],
-                [$model_name, $model_name_lower, $model_name_plural, $model_name_plural_lower],
+                [":MODEL_NAME:", ":MODEL_NAME_VARIABLE:", ":MODEL_NAME_LOWER:", ":MODEL_NAME_PLURAL:", ":MODEL_NAME_PLURAL_LOWER:"],
+                [$model_name, $model_name_variable, $model_name_lower, $model_name_plural, $model_name_plural_lower],
                 $content
             );
             
@@ -143,7 +144,7 @@ class CreateModel extends Command
         
         // Check if model table exists
         if (!Schema::hasTable($model_name_plural_lower)) {
-            $this->warn("\nTable `$model_name_plural_lower` does not exists, remember to run `php artisan migrate`!");
+            $this->warn("\nTable `$model_name_plural_lower` does not exists, rememer to run `php artisan migrate`!");
         }
         
         // Create the model
