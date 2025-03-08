@@ -39,7 +39,7 @@ class :MODEL_NAME:Controller extends Controller
      * Display the specified resource.
      */
     public function show(:MODEL_NAME: $:MODEL_NAME_VARIABLE:){
-        return self::modal_data(":MODEL_NAME_LOWER:", [":MODEL_NAME_LOWER:" => $:MODEL_NAME_VARIABLE:]);
+        return self::modal_data(":MODEL_NAME_LOWER:", [":MODEL_NAME_VARIABLE:" => $:MODEL_NAME_VARIABLE:]);
     }
 
     /**
