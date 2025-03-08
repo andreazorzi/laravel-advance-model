@@ -143,7 +143,7 @@ class CreateModel extends Command
         
         // Check if model table exists
         if (!Schema::hasTable($model_name_plural_lower)) {
-            $this->warn("\nTable `$model_name_plural_lower` does not exists, rememer to run `php artisan migrate`!");
+            $this->warn("\nTable `$model_name_plural_lower` does not exists, remember to run `php artisan migrate`!");
         }
         
         // Create the model
