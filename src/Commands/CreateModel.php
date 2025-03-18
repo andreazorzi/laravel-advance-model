@@ -64,6 +64,7 @@ class CreateModel extends Command
         $model_name_variable = Str::snake($model_name);
         $model_name_plural = Str::plural($model_name);
         $model_name_plural_lower = Str::kebab($model_name_plural);
+        $model_name_plural_variable = Str::snake($model_name_plural);
         
         // Copy the files
         foreach ($this->files as $file => $data) {
@@ -143,8 +144,8 @@ class CreateModel extends Command
         }
         
         // Check if model table exists
-        if (!Schema::hasTable($model_name_plural_lower)) {
-            $this->warn("\nTable `$model_name_plural_lower` does not exists, rememer to run `php artisan migrate`!");
+        if (!Schema::hasTable($model_name_plural_variable)) {
+            $this->warn("\nTable `$model_name_plural_variable` does not exists, rememer to run `php artisan migrate`!");
         }
         
         // Create the model
