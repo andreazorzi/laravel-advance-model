@@ -23,7 +23,7 @@ class :MODEL_NAME:Controller extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(){
+    public function create(Request $request){
         return self::modal_data(":MODEL_NAME_LOWER:");
     }
 
@@ -38,7 +38,7 @@ class :MODEL_NAME:Controller extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(:MODEL_NAME: $:MODEL_NAME_VARIABLE:){
+    public function show(Request $request, :MODEL_NAME: $:MODEL_NAME_VARIABLE:){
         return self::modal_data(":MODEL_NAME_LOWER:", [":MODEL_NAME_VARIABLE:" => $:MODEL_NAME_VARIABLE:]);
     }
 
@@ -53,7 +53,7 @@ class :MODEL_NAME:Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(:MODEL_NAME: $:MODEL_NAME_VARIABLE:){
+    public function destroy(Request $request, :MODEL_NAME: $:MODEL_NAME_VARIABLE:){
         $response = $:MODEL_NAME_VARIABLE:->deleteFromRequest();
         return $this->alert($response);
     }
